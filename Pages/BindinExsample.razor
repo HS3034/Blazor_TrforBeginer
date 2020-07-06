@@ -1,0 +1,48 @@
+
+@page "/bindingexsample"
+@inherits BindingexsampleBase
+<h3>Binding Data</h3>
+
+<h3>Bind Values</h3>
+
+<h4>On way DataBinding</h4>
+
+<label>
+    @employees.Name
+</label>
+<label>
+    @employees.Job
+</label>
+
+<h5> One Way Data Binding From control</h5>
+<div>
+    <input value="@employees.Name" />
+    <input value="@employees.Job" />
+</div>
+
+<h4>One Way Data Binding From Control</h4>
+<div>
+    <input @bind="@employees.Name"  />
+    <input @bind="@employees.Job" />
+</div>
+
+<h5>One Way Data Binding From control Different ways</h5>
+
+<div>
+
+
+    <input @bind-value="@employees.Name" @bind-value:event="oninput"  class="form-control-sm"/>
+    <input @bind-value="@employees.Job" @bind-value:event="oninput" class="form-control-sm"/>
+
+
+<br />
+    <button type="submit" @onclick="ButtonClick" class="btn btn-info">Click</button>
+
+    
+</div>
+
+@code{
+    private void ButtonClick() {
+        employees.Name = "xxxx";
+    }
+}

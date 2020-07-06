@@ -1,0 +1,33 @@
+﻿@page "/employeeedit"
+@page "/employeeedit/{id}"
+@inherits EmployeeeditBase
+
+@code{}
+
+<h3>EmployeeEdit</h3>
+
+<section>
+    @if(!Save)
+        {
+
+    <EditForm Model="@EmployeeDb" OnInvalidSubmit="@handleSubmit">
+        <div class="form-group row">
+            <label for="Name" id="Name">Name</label>
+            <InputText id="Name" @bind-Value="@EmployeeDb.Name" placeholder="Enter Name"></InputText>
+        </div>
+        <div class="form-group row">
+            <label for="Job" id="Job">Job</label>
+            <InputText id="Job" @bind-Value="@EmployeeDb.Job" placeholder="Enter Job"></InputText>
+        </div>
+        <button value="Submit">Submit</button>
+
+    </EditForm>
+
+    
+    }else
+    {
+        <div class="alert @StatusClass">@Message</div>
+    }
+</section>
+
+
